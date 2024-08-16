@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Modifier la photo 📸</h2>
+
+    <form method="post" enctype="multipart/form-data">
+
+        {{ edit_form.as_p }}
+
+        {% csrf_token %}
+
+        <button type="submit" >Sauvegarder</button>
+
+    </form>
+
+    <hr>
+
+    <h3>Supprimer la photo ?</h3>
+
+    <form method="post">
+
+        {{ delete_form.as_p }}
+
+        {% csrf_token %}
+
+        <button type="submit" >Supprimer</button>
+
+    </form>
+
+{% endblock content %}

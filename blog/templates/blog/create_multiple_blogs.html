@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Créez plusieurs blogs</h2>
+<!--présenter chaque formulaire du formset individuellement.-->
+   
+<form method="post" enctype="multipart/form-data">
+
+    {{ formset.management_form }} <!--présenter chaque formulaire du formset individuellement.-->
+
+    {% csrf_token %}
+
+    {% for form in formset %}
+
+        {{ form.as_p }}
+
+    {% endfor %}
+
+    <button type="submit" >Publier</button>
+
+</form>
+
+{% endblock content %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+
+    <!-- Section Blogs -->
+    <h2 class="text-danger text-center my-4"> Billet💵 de Blog </h2>
+ 
+    <div class="row justify-content-around">
+        {% for blog in blogs %}
+<div class="col-sm-6 col-md-4 col-lg-5 mb-4">
+    <a href="{% url 'view_blog' blog.id %}">
+        <!-- Vérifier si blog.photo.image.url est présent -->
+        {% if blog.photo and blog.photo.image %}
+                        <img src="{{ blog.photo.image.url }}" class="img-fluid" alt="Blog Photo">
+                    {% elif blog.picture %}
+                        <img src="{{ blog.picture.url }}" class="img-fluid" alt="Default Picture">
+                    
+                    {% endif %}
+        <p>Billet : {{ blog.title }}</p>
+        
+        <p class="text-secondary"><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></p>
+
+    </a> 
+</div>
+{% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}
+

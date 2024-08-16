@@ -1,0 +1,72 @@
+html {
+    font-family: Arial;
+}
+
+/* The sidebar menu */
+.sidebar {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 220px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #1d3030;
+    color:  #ffffe6;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* The navigation menu links */
+.sidebar a {
+    text-decoration: none;
+    color:  #ffffe6;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+    margin-left: 240px; /* Same as the width of the sidebar */
+    padding: 20px;
+}
+
+.avatar {
+    width: 80%;
+    border-radius: 10%;
+    display: block;
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet de retourner à la ligne pour les photos supplémentaires */
+    gap: 20px; /* Espace entre les éléments de la grille */
+    padding: 20px;
+    justify-content: center; /* Centre les éléments horizontalement */
+    text-align: center;
+}
+
+.post {
+    flex: 1 1 21%; /* 21% pour 4 éléments par ligne avec un peu d'espace entre eux */
+    display: flex;
+    flex-direction:row;
+    
+   
+}
+
+.post img {
+    width: 100%;
+    border-radius: 5px;
+    display: block;
+}
+

@@ -1,0 +1,78 @@
+ {% extends 'base.html' %}  
+{% load static %}
+
+{% block content %}   
+
+<!--h2 class="text-danger">Galerie de Photos</h2>  
+
+ 
+ <div class="container text-center d-flex justify-content-arount">
+    <div class="row ">
+        {% for photo in photos %}
+            <div class="col-sm-4 col-md-4 col-lg-4  ">
+                <img src="{{ photo.image.url }}" class="" style="width:100%; margin-left: px ">
+                <h4>{{ photo.caption }}</h4>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<h2 class="text-danger">Blog</h2>
+
+<div class="container text-center d-flex justify-content-arount">
+    <div class="row ">
+        {% for blog in blogs %}
+            <div class="col-sm-4 col-md-4 col-lg-4  ">
+<a href="{% url 'view_blog' blog.id %}">
+<img src="{{ blog.photo.image.url }}" style="width:300px;">
+<p>Billet : {{ blog.title }}</p>
+    
+                </a> 
+            </div>
+        {% endfor %}
+    </div>
+</div--->
+
+<!----------------------------------------------->
+
+<div class="container">
+    <!-- Section Photos -->
+    <h2 class="text-danger text-center my-4">Galerie de Photos</h2>  
+    <div class="row justify-content-around">
+        {% for photo in photos %}
+            <div class="col-sm-6 col-md-4 col-lg-5 mb-4">
+                <img src="{{ photo.image.url }}" class="img-fluid" alt="Photo">
+                <h4>{{ photo.caption }}</h4>
+                <p class="text-secondary"><a href="{% url 'edit_photo' photo.id %}">Modifier la 📸</a></p> 
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Section Blogs -->
+    <h2 class="text-danger text-center my-4">Blog</h2>
+    <div class="row justify-content-around">
+        {% for blog in blogs %}
+            <div class="col-sm-6 col-md-4 col-lg-5 mb-4">
+                <a href="{% url 'view_blog' blog.id %}">
+                    {% if blog.photo and blog.photo.image %}
+                        <img src="{{ blog.photo.image.url }}" class="img-fluid" alt="Blog Photo">
+                    {% elif blog.picture %}
+                        <img src="{{ blog.picture.url }}" class="img-fluid" alt="Default Picture">
+                    
+                    {% endif %}
+                    <p>Billet : {{ blog.title }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+
+
+
+
+
+
+{% endblock content %}
