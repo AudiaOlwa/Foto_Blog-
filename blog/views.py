@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from . import forms
 from . import models
 from django.shortcuts import get_object_or_404
@@ -22,6 +22,7 @@ def billet(request):
 #------------------------------------------------------
 
 @login_required
+@permission_required('blog.add_photo', raise_exception=True)
 def photo_upload(request):
     form = forms.PhotoForm()
     if request.method == 'POST':
@@ -36,6 +37,7 @@ def photo_upload(request):
     return render(request, 'blog/photo_upload.html', context={'form': form})
 #------------------------------------------------------------------
 @login_required
+@permission_required('blog.add_blog', raise_exception=True)
 def blog_and_photo_upload(request):
     blog_form = forms.BlogForm()
     #photo_form = forms.PhotoForm()
@@ -61,6 +63,7 @@ def view_blog(request, blog_id):
     return render(request, 'blog/view_blog.html', {'blog': blog})
 #----------------------------------------------------------------------
 @login_required
+@permission_required('blog.change_blog', raise_exception=True)
 def edit_blog(request, blog_id):
 
     blog = get_object_or_404(models.Blog, id=blog_id)
@@ -98,6 +101,8 @@ def edit_blog(request, blog_id):
 #-----------------------------------------------------------------------
 
 @login_required
+@permission_required('blog.change_photo', raise_exception=True)
+
 def edit_photo(request, photo_id):
 
     photo = get_object_or_404(models.Photo, id=photo_id)
@@ -136,6 +141,7 @@ def edit_photo(request, photo_id):
 #---------------------------------------------------------
 
 @login_required
+@permission_required('blog.add_photo', raise_exception=True)
 def create_multiple_photos(request):
 
     PhotoFormSet = formset_factory(forms.PhotoForm, extra=3)

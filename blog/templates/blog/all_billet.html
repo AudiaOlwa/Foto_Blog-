@@ -17,9 +17,9 @@
                     
                     {% endif %}
         <p>Billet : {{ blog.title }}</p>
-        
+        {% if perms.blog.change_blog %}
         <p class="text-secondary"><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></p>
-
+        {% endif %}
     </a> 
 </div>
 {% endfor %}

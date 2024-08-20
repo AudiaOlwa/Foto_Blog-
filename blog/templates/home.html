@@ -45,8 +45,11 @@
             <div class="col-sm-6 col-md-4 col-lg-5 mb-4">
                 <img src="{{ photo.image.url }}" class="img-fluid" alt="Photo">
                 <h4>{{ photo.caption }}</h4>
-                <p class="text-secondary"><a href="{% url 'edit_photo' photo.id %}">Modifier la 📸</a></p> 
+                {% if perms.blog.change_photo %}
+                <p class="text-secondary"><a href="{% url 'edit_photo' photo.id %}">Modifier la 📸</a></p>
+                {% endif %} 
             </div>
+            
         {% endfor %}
     </div>
 
