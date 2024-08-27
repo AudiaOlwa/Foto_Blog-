@@ -35,7 +35,7 @@ urlpatterns = [
     path('photo/<int:photo_id>/edit', blog.views.edit_photo, name='edit_photo'),
     path('photo/upload-multiple/', blog.views.create_multiple_photos, name='create_multiple_photos'),
     path('upload-multiple/', blog.views.create_multiple_blogs, name='create_multiple_blogs'),
-    
+    path('follow-users/', blog.views.follow_users, name='follow_users'),
 ]
 
 if settings.DEBUG:

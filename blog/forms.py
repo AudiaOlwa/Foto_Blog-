@@ -1,5 +1,5 @@
 from django import forms
-
+from django.contrib.auth import get_user_model
 from . import models
 
 class PhotoForm(forms.ModelForm):
@@ -38,6 +38,16 @@ class MultipleBlogForm(forms.ModelForm):
     class Meta:
         model = models.Blog
         fields = ['title', 'picture']
+
+User = get_user_model()
+class FollowUsersForm(forms.ModelForm):
+
+    class Meta:
+
+        model = User
+
+        fields = ['follows']
+
 
 
 

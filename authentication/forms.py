@@ -18,3 +18,4 @@ class UploadProfilePhotoForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['profile_photo']
+
