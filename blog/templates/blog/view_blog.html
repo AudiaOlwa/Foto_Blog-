@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load blog_extras %}
 {% block content %}
  </h2>
 <div class="container">
@@ -17,6 +17,8 @@
                     {% endif %}
                    <p>{{ blog.caption }}</p>
                       <p>{{ blog.content }}</p>
+                      
+                      <p>{{ blog.date_created|get_posted_at_display }}, par: {{ blog.contributors.all|join:", " }}</p>
                       {% if perms.blog.change_blog %}
                    <p class="text-secondary"><a href="{% url 'edit_blog' blog.id %}">Modifier le billet</a></p>
                    {% endif %}
@@ -27,5 +29,3 @@
     
    </div>
 {% endblock content %}
-
-

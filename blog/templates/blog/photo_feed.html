@@ -1,0 +1,22 @@
+{% extends 'base.html' %}  
+{% load blog_extras %}
+{% load static %}
+{% block content %}   
+<div class="container">
+<!-- Section Blogs -->
+     
+<h2 class="text-danger text-center my-4"> Galerie photo📸 </h2>
+ 
+    <div class="row justify-content-around">
+        {% for photo in page_obj %}
+        <div class="col-sm-6 col-md-4 col-lg-5 mb-4">
+        {% include 'blog/partials/photo_snippet.html' %}
+    </div>
+{% endfor %}
+    </div>
+</div>
+
+{% include 'blog/partials/page_navigator.html' %}
+ {% endblock content %}
+
+ 

@@ -31,6 +31,7 @@ urlpatterns = [
     path('blog_create', blog.views.blog_and_photo_upload, name='blog_create'),
     path('blog/<int:blog_id>', blog.views.view_blog, name='view_blog'),
     path('all_blogs', blog.views.billet, name='all_blogs'),
+    path('all_photos', blog.views.photo_feed, name='all_photos'),
     path('blog/<int:blog_id>/edit', blog.views.edit_blog, name='edit_blog'),
     path('photo/<int:photo_id>/edit', blog.views.edit_photo, name='edit_photo'),
     path('photo/upload-multiple/', blog.views.create_multiple_photos, name='create_multiple_photos'),

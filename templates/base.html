@@ -23,6 +23,7 @@
                 {% endif %}
                 <p><a href="{% url 'all_blogs' %}">Voir billets de blogs</a></p>
                 {% if perms.blog.add_photo %}
+                <p><a href="{% url 'all_photos' %}">Voir la galerie photo📸</a></p>
                 <p><a href="{% url 'photo_upload' %}">Téléverser une photo</a></p>
                 
                 <p><a href="{% url 'create_multiple_photos' %}">Télécharger plusieurs📸</a></p>
